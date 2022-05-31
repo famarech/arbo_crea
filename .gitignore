@@ -1,0 +1,11 @@
+#commentaires
+
+*.spec
+*.exe
+*.swp
+
+/build
+/dist
+
+/Modele
+/Copie
