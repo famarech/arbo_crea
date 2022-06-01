@@ -32,7 +32,7 @@ def main():
         fenetre.iconbitmap(icone)
     except:
         pass
-    fenetre.title("ArboCréa v3.1" + "                                           " +\
+    fenetre.title("ArboCréa v3.2" + "                                           " +\
                                             "Créez simplement des arborescences " +\
                                     "personnalisés pour la gestion de vos affaires")
     global systeme_onglet

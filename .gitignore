@@ -1,11 +1,12 @@
 #commentaires
 
 *.spec
-*.exe
 *.swp
 
 /build
 /dist
 
-/Modele
 /Copie
+/00 999 Abcdef
+
+!/Modele
