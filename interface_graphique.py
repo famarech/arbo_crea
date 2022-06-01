@@ -1,12 +1,7 @@
-# pyinstaller --onefile --windowed '.\ArboCréa 1.6.py'
 import tkinter
-import os
 from tkinter import ttk
 from tkinter import filedialog
-
-
-
-
+from os.path import abspath
 
 
 
@@ -15,26 +10,10 @@ from tkinter import filedialog
     # # # |                  |variables globales|                  | # # #
     # # # \------------------|------------------|------------------/ # # #
 
-global annee_onglet1
-global num_chantier_onglet1
-global nom_chantier_onglet1
-global contrat
-global fournisseur
-global planning
-global etudes
-global prod
-global transport
-global sav
 global chemin_acces_source
-global chemin_acces_dest_onglet1
-global lecteur_onglet1
 global annee_onglet2
 global num_chantier_onglet2
 global nom_chantier_onglet2
-
-
-
-
 
 
 
@@ -46,17 +25,17 @@ global nom_chantier_onglet2
 def main():
     fenetre = tkinter.Tk()
     fenetre.geometry("800x300")
-    # fenetre.iconbitmap("G:\Reconversion Pro\00_formations\Formation Python appronfondie\Projet ArboCréa\logo.ico")
+    icone = abspath('./ressources/logo.ico')
+    fenetre.iconbitmap(icone)
     fenetre.title("ArboCréa v3.1" + "                                           " +\
                                             "Créez simplement des arborescences " +\
                                     "personnalisés pour la gestion de vos affaires")
-
     global systeme_onglet
     systeme_onglet = ttk.Notebook(fenetre)
     systeme_onglet.pack()
     onglet2()
-
     fenetre.mainloop()
+
 
 
 
@@ -77,8 +56,9 @@ def onglet2():
     onglet2.pack()
     systeme_onglet.add(onglet2, text="A partir d'un modele")
 
-    ecran_gauche = tkinter.LabelFrame(onglet2, text="Source et destination" +\
-                    "du chantier", width=300, height=200, bd=2, padx=50, pady=50)
+    ecran_gauche = tkinter.LabelFrame(onglet2,
+                                    text="Source et destination du chantier",
+                                    width=300, height=200, bd=2, padx=50, pady=50)
 
     lb_chemin_source_onglet2 = tkinter.Label(ecran_gauche, text="Chercher la source du modèle : ")
     chemin_acces_source_onglet2 = tkinter.StringVar()
@@ -98,13 +78,13 @@ def onglet2():
     btn_chemin_dest_onglet2.grid(row=3, column=1)
     ecran_gauche.grid(row=0, column=0)
 
-
     # /-------------------\
     # |  onglet 2 droite  |
     # \-------------------/
 
-    ecran_droite = tkinter.LabelFrame(onglet2, text="Saisir les informations " +\
-                    "du chantier", width=300, height=200, bd=2, padx=50, pady=50)
+    ecran_droite = tkinter.LabelFrame(onglet2,
+                                    text="Saisir les informations du chantier",
+                                    width=300, height=200, bd=2, padx=50, pady=50)
 
     lb_annee_onglet2 = tkinter.Label(ecran_droite, text="Année en 2 chiffres : ")
     annee_onglet2 = tkinter.IntVar()
@@ -135,12 +115,7 @@ def onglet2():
     # \-------------------/
 
     btn_crea_onglet2 = tkinter.Button(onglet2, text="Creation des dossiers", command=create_manu_modele)
-    btn_crea_onglet2.grid(row=1)
-
-
-
-
-
+    btn_crea_onglet2.grid(row=1, column=1)
 
 
 
@@ -168,5 +143,8 @@ def explorateur_dest_onglet2():
 
 def create_manu_modele():
     return 0
+
+
+
 
 main()
